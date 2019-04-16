@@ -6,9 +6,19 @@ if ($data->has('question')) {
 }
 ?>
 
-<?= nl2br($copy);?>
+<p><?= nl2br($copy);?></p>
 
 <div class="clearfix"><!-- clear --></div>
+
+<?php
+if (!empty($data->get('tagged')) && $data->has('question')) {
+    echo "<div class='float-left'>";
+    foreach ($data->get('tagged') as $tagged) {
+        echo "<span class='badge badge-secondary mr-2'>" . $tagged->get('tag')->get('name') . "</span>";
+    }
+    echo "</div>";
+}
+?>
 
 <div class="card float-right bg-light">
     <div class="card-body">
