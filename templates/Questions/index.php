@@ -18,7 +18,12 @@
             <p class="text-secondary float-right">
                 asked <?= $question->get('modified')->timeAgoInWords()?> <?= $question->get('user')->get('username');?>
             </p>
+            <div class="clearfix"></div>
         </div>
         <?php
     }
 endif;?>
+
+<nav>
+    <ul class="pagination"><?= $this->Paginator->numbers()?></ul>
+</nav>

@@ -45,7 +45,7 @@ class QuestionsController extends AppController
 
         $this->set(
             'questions',
-            $this->Paginator->paginate($questionsQuery)
+            $this->Paginator->paginate($questionsQuery, ['limit' => 10])
         );
     }
 

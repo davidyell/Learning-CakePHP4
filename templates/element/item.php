@@ -14,7 +14,7 @@ if ($data->has('question')) {
     <div class="card-body">
         <p class="text-secondary">asked <?= $data->get('modified')->timeAgoInWords()?></p>
         <img class="float-left mr-3" src="<?= "https://www.gravatar.com/avatar/" . md5(strtolower(trim($data->get('user')->get('email_address')))) . "?s=32"?>">
-        <p><?= $data->get('user')->get('username');?></p>
+        <p style="white-space: nowrap"><?= $data->get('user')->get('username');?></p>
     </div>
 </div>
 

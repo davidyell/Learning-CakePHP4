@@ -7,7 +7,20 @@
             <?= $this->Html->link(
                 'Questions',
                 ['controller' => 'Questions', 'action' => 'index'],
-                ['class' => $this->getRequest()->getParam('controller') === 'Questions' ? 'nav-link active' : 'nav-link']
+                [
+                    'class' => $this->getRequest()->getParam('controller') === 'Questions'
+                    && $this->getRequest()->getParam('action') === 'index' ? 'nav-link active' : 'nav-link'
+                ]
+            );?>
+        </li>
+        <li class="nav-item">
+            <?= $this->Html->link(
+                'Ask',
+                ['controller' => 'Questions', 'action' => 'add'],
+                [
+                    'class' => $this->getRequest()->getParam('controller') === 'Questions'
+                    && $this->getRequest()->getParam('action') === 'add' ? 'nav-link active' : 'nav-link'
+                ]
             );?>
         </li>
 
