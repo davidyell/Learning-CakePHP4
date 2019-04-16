@@ -67,6 +67,11 @@ class QuestionsTable extends Table
             ->add('id', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
+            ->scalar('title')
+            ->requirePresence('title', 'create')
+            ->notEmptyString('title');
+
+        $validator
             ->scalar('question')
             ->requirePresence('question', 'create')
             ->notEmptyString('question');

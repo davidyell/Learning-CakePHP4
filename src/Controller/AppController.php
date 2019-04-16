@@ -24,6 +24,8 @@ use Cake\Controller\Controller;
  * will inherit them.
  *
  * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ *
+ * @mixin \Cake\Controller\Component\AuthComponent
  */
 class AppController extends Controller
 {
@@ -42,11 +44,21 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
-        /*
-         * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
-         */
-        //$this->loadComponent('Security');
+        $this->loadComponent('Security');
+        $this->loadComponent('Auth', [
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'logoutRedirect' => '/',
+            'authError' => 'You must login',
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email_address']
+                ]
+            ],
+            'finder' => 'login',
+            'storage' => 'Session'
+        ]);
     }
 }

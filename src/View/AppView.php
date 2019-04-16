@@ -36,5 +36,13 @@ class AppView extends View
      */
     public function initialize(): void
     {
+        $this->loadHelper('Form', [
+            'templates' => [
+                'input' => '<input class="form-control" type="{{type}}" name="{{name}}"{{attrs}}/>',
+                'textarea' => '<textarea class="form-control" name="{{name}}"{{attrs}}>{{value}}</textarea>',
+                'inputContainer' => '<div class="form-group {{type}}">{{content}}</div>',
+                'inputContainerError' => '<div class="form-group {{type}} is-invalid">{{content}}{{error}}</div>',
+            ]
+        ]);
     }
 }

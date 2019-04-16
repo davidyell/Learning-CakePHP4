@@ -28,6 +28,7 @@ class Question extends Entity
      * @var array
      */
     protected $_accessible = [
+        'title' => true,
         'question' => true,
         'user_id' => true,
         'created' => true,

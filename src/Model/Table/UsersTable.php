@@ -107,4 +107,18 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+    /**
+     * Customer finder method for finding users to login
+     *
+     * @param Query $query Query instance to modify
+     * @param array $options Array of options for the finder
+     * @return Query
+     */
+    public function findLogin(Query $query, array $options): Query
+    {
+        return $query
+            ->select(['id', 'username', 'email_address', 'password'])
+            ->where(['is_active' => true]);
+    }
 }
