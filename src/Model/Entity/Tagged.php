@@ -31,7 +31,6 @@ class Tagged extends Entity
     protected $_accessible = [
         'question_id' => true,
         'tag_id' => true,
-        'user_id' => true,
         'created' => true,
         'modified' => true,
         'question' => true,

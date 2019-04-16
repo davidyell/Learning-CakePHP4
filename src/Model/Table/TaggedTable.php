@@ -50,10 +50,6 @@ class TaggedTable extends Table
             'foreignKey' => 'tag_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER',
-        ]);
     }
 
     /**
@@ -83,7 +79,6 @@ class TaggedTable extends Table
         $rules->add($rules->isUnique(['id']));
         $rules->add($rules->existsIn(['question_id'], 'Questions'));
         $rules->add($rules->existsIn(['tag_id'], 'Tags'));
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

@@ -15,6 +15,15 @@
                 ['controller' => 'Questions', 'action' => 'view', $question->get('id')],
                 ['escape' => false]
             )?>
+
+            <?php
+            if (!empty($question->get('tagged'))) {
+                foreach ($question->get('tagged') as $tagged) {
+                    echo "<span class='badge badge-secondary mr-2'>" . $tagged->get('tag')->get('name') . "</span>";
+                }
+            }
+            ?>
+
             <p class="text-secondary float-right">
                 asked <?= $question->get('modified')->timeAgoInWords()?> <?= $question->get('user')->get('username');?>
             </p>

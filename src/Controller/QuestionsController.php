@@ -40,7 +40,12 @@ class QuestionsController extends AppController
     public function index()
     {
         $questionsQuery = $this->Questions->find()
-            ->contain('Users')
+            ->contain([
+                'Users',
+                'Tagged' => [
+                    'Tags'
+                ]
+            ])
             ->order(['Questions.modified' => 'desc']);
 
         $this->set(
