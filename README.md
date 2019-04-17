@@ -15,7 +15,7 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 ## TODO
 - [x] Tagging
 - [x] Comments
-- [ ] Answer count on question index
+- [x] Answer count on question index
 - [ ] Slugs
 - [ ] Voting
 - [ ] Administration

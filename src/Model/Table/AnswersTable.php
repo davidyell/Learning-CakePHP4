@@ -41,6 +41,9 @@ class AnswersTable extends Table
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Comments');
+        $this->addBehavior('CounterCache', [
+            'Questions' => ['answer_count']
+        ]);
 
         $this->belongsTo('Questions', [
             'foreignKey' => 'question_id',

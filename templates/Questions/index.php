@@ -10,23 +10,31 @@
     foreach ($questions as $question) {
         ?>
         <div class="question">
-            <?= $this->Html->link(
-                '<h4>' . $question->get('title') . '</h4>',
-                ['controller' => 'Questions', 'action' => 'view', $question->get('id')],
-                ['escape' => false]
-            )?>
+            <div class="card float-left mr-3">
+                <div class="card-body text-center">
+                    <small><?= $question->get('answer_count');?><br>
+                    answers</small>
+                </div>
+            </div>
+            <div class="question-content">
+                <?= $this->Html->link(
+                    '<h4>' . $question->get('title') . '</h4>',
+                    ['controller' => 'Questions', 'action' => 'view', $question->get('id')],
+                    ['escape' => false]
+                )?>
 
-            <?php
-            if (!empty($question->get('tagged'))) {
-                foreach ($question->get('tagged') as $tagged) {
-                    echo "<span class='badge badge-secondary mr-2'>" . $tagged->get('tag')->get('name') . "</span>";
+                <?php
+                if (!empty($question->get('tagged'))) {
+                    foreach ($question->get('tagged') as $tagged) {
+                        echo "<span class='badge badge-secondary mr-2'>" . $tagged->get('tag')->get('name') . "</span>";
+                    }
                 }
-            }
-            ?>
+                ?>
 
-            <p class="text-secondary float-right">
-                asked <?= $question->get('modified')->timeAgoInWords()?> <?= $question->get('user')->get('username');?>
-            </p>
+                <p class="text-secondary float-right">
+                    asked <?= $question->get('modified')->timeAgoInWords()?> <?= $question->get('user')->get('username');?>
+                </p>
+            </div>
             <div class="clearfix"></div>
             <hr>
         </div>
