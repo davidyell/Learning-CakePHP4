@@ -51,7 +51,7 @@ class TaggedFixture extends TestFixture
                 'tag_id' => 1,
                 'user_id' => 1,
                 'created' => '2019-04-16 10:46:08',
-                'modified' => '2019-04-16 10:46:08'
+                'modified' => '2019-04-16 10:46:08',
             ],
         ];
         parent::init();

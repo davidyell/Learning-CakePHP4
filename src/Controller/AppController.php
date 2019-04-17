@@ -48,17 +48,17 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
             'loginAction' => [
                 'controller' => 'Users',
-                'action' => 'login'
+                'action' => 'login',
             ],
             'logoutRedirect' => '/',
             'authError' => 'You must login',
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'email_address']
-                ]
+                    'fields' => ['username' => 'email_address'],
+                ],
             ],
             'finder' => 'login',
-            'storage' => 'Session'
+            'storage' => 'Session',
         ]);
     }
 }

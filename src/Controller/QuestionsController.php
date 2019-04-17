@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * QuestionsController
  *
@@ -43,8 +44,8 @@ class QuestionsController extends AppController
             ->contain([
                 'Users',
                 'Tagged' => [
-                    'Tags'
-                ]
+                    'Tags',
+                ],
             ])
             ->order(['Questions.modified' => 'desc']);
 
@@ -96,8 +97,8 @@ class QuestionsController extends AppController
                         ->order(['Answers.modified' => 'desc']);
                 },
                 'Tagged' => [
-                    'Tags'
-                ]
+                    'Tags',
+                ],
             ])
             ->where(['Questions.id' => $id])
             ->first();

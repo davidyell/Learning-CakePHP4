@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AnswersController
  *
@@ -24,6 +25,7 @@ class AnswersController extends AppController
     {
         if ($questionId !== $this->getRequest()->getData('question_id')) {
             $this->Flash->error('Cannot answer other questions from this question.');
+
             return $this->redirect(['controller' => 'Questions', 'action' => 'view', $questionId]);
         }
 

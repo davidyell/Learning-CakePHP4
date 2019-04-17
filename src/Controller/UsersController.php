@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * UsersController
  *
@@ -38,6 +39,7 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
+
                 return $this->redirect($this->Auth->redirectUrl());
             } else {
                 $this->Flash->error(__('Username or password is incorrect'));
@@ -53,6 +55,7 @@ class UsersController extends AppController
     public function logout()
     {
         $this->getRequest()->getSession()->destroy();
+
         return $this->redirect($this->Auth->logout());
     }
 
@@ -70,6 +73,7 @@ class UsersController extends AppController
 
             if ($this->Users->save($user)) {
                 $this->Flash->success('Thanks for registering, please login');
+
                 return $this->redirect(['controller' => 'Questions', 'action' => 'index']);
             }
 

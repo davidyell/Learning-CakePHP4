@@ -42,7 +42,7 @@ class AppView extends View
                 'textarea' => '<textarea class="form-control" name="{{name}}"{{attrs}}>{{value}}</textarea>',
                 'inputContainer' => '<div class="form-group {{type}}">{{content}}</div>',
                 'inputContainerError' => '<div class="form-group {{type}} is-invalid">{{content}}{{error}}</div>',
-            ]
+            ],
         ]);
         $this->loadHelper('Paginator', [
             'templates' => [
@@ -54,7 +54,7 @@ class AppView extends View
                 'last' => '<li class="page-item last"><a class="page-link" href="{{url}}">{{text}}</a></li>',
                 'number' => '<li class="page-item"><a class="page-link" href="{{url}}">{{text}}</a></li>',
                 'current' => '<li class="page-item active"><a class="page-link" href="">{{text}}</a></li>',
-            ]
+            ],
         ]);
     }
 }

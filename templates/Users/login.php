@@ -4,6 +4,8 @@
             <h1>Login</h1>
 
             <?php
+            echo $this->Flash->render('auth');
+
             echo $this->Form->create();
             echo $this->Form->control('email_address');
             echo $this->Form->control('password');

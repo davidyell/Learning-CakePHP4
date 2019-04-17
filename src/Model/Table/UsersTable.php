@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
@@ -111,9 +112,9 @@ class UsersTable extends Table
     /**
      * Customer finder method for finding users to login
      *
-     * @param Query $query Query instance to modify
+     * @param \Cake\ORM\Query $query Query instance to modify
      * @param array $options Array of options for the finder
-     * @return Query
+     * @return \Cake\ORM\Query
      */
     public function findLogin(Query $query, array $options): Query
     {

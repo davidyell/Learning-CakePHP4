@@ -47,7 +47,7 @@ class CommentsFixture extends TestFixture
                 'table_name' => 'Lorem ipsum dolor sit amet',
                 'primary_key' => 1,
                 'created' => '2019-04-16 10:46:08',
-                'modified' => '2019-04-16 10:46:08'
+                'modified' => '2019-04-16 10:46:08',
             ],
         ];
         parent::init();
