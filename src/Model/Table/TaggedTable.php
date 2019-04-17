@@ -82,4 +82,39 @@ class TaggedTable extends Table
 
         return $rules;
     }
+
+    /**
+     * Take an array of tag names from a selectize field, find out which ones exist, and add news ones.
+     * Then return an array of Tagged entities
+     *
+     * @param array $tagNames
+     * @return array
+     */
+    public function buildTags(array $tagNames): array
+    {
+        $taggedEntities = [];
+
+        $existingTags = $this->Tags->find()
+            ->where(['Tags.name IN' => $tagNames]);
+
+        $existingTagsArray = $existingTags
+            ->combine('id', 'name')
+            ->toArray();
+
+        foreach ($existingTags as $tag) {
+            $newTaggedEntity = $this->newEmptyEntity();
+            $newTaggedEntity->set('tag', $tag);
+            $taggedEntities[] = $newTaggedEntity;
+        }
+
+        $newTags = array_diff($tagNames, $existingTagsArray);
+        foreach ($newTags as $tagName) {
+            $newTaggedEntity = $this->newEmptyEntity();
+            $newTagEntity = $this->Tags->newEntity(['name' => $tagName]);
+            $newTaggedEntity->set('tag', $newTagEntity);
+            $taggedEntities[] = $newTaggedEntity;
+        }
+
+        return $taggedEntities;
+    }
 }

@@ -34,12 +34,24 @@ class TagsFixture extends TestFixture
      *
      * @return void
      */
-    public function init()
+    public function init(): void
     {
         $this->records = [
             [
-                'id' => 1,
-                'name' => 'Lorem ipsum dolor sit amet',
+                'id' => 6,
+                'name' => 'Cat',
+                'created' => '2019-04-16 10:46:08',
+                'modified' => '2019-04-16 10:46:08',
+            ],
+            [
+                'id' => 12,
+                'name' => 'Fish',
+                'created' => '2019-04-16 10:46:08',
+                'modified' => '2019-04-16 10:46:08',
+            ],
+            [
+                'id' => 18,
+                'name' => 'Mouse',
                 'created' => '2019-04-16 10:46:08',
                 'modified' => '2019-04-16 10:46:08',
             ],

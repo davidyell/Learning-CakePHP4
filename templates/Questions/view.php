@@ -11,11 +11,12 @@ if (!empty($question->get('answers'))) {
         $label .= 's';
     }
     echo "<h3>" . $answerCount . " " . $label . "</h3><hr>";
-    foreach ($question->get('answers') as $answer) {
-        ?><div class="answer mt-4 mb-4"><?php
-        echo $this->element('item', ['data' => $answer]);
-        ?></div>
-        <hr><?php
+    foreach ($question->get('answers') as $answer) { ?>
+        <div class="answer mt-4 mb-4">
+            <?php echo $this->element('item', ['data' => $answer]); ?>
+        </div>
+        <hr>
+        <?php
     }
 }
 ?>
@@ -29,7 +30,7 @@ if ($this->getRequest()->getSession()->check('Auth.User')) {
     echo $this->Form->end();
 } else {
     ?>
-    <p class="bg-light p-3">
+    <p class="bg-light p-3 mt-3">
         Please login to post an answer to this question<br>
         <?= $this->Html->link('Login', ['controller' => 'Users', 'action' => 'login'], ['class' => 'btn btn-primary mt-3']);?>
     </p>

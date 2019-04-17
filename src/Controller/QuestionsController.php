@@ -22,6 +22,7 @@ class QuestionsController extends AppController
     /**
      * Initialize the controller
      *
+     * @return void
      * @throws \Exception
      */
     public function initialize(): void
@@ -67,6 +68,7 @@ class QuestionsController extends AppController
         if ($this->getRequest()->is('post')) {
             $question = $this->Questions->patchEntity($question, $this->getRequest()->getData());
             $question->set('user_id', $this->getRequest()->getSession()->read('Auth.User.id'));
+            $question->set('tagged', $this->Questions->Tagged->buildTags($this->getRequest()->getData('tags')));
 
             if ($this->Questions->save($question)) {
                 $this->Flash->success('Your question has been saved.');
@@ -78,12 +80,16 @@ class QuestionsController extends AppController
         }
 
         $this->set('question', $question);
+        $this->set('tags', $this->Questions->Tagged->Tags->find('list', [
+            'keyField' => 'name',
+            'valueField' => 'name'
+        ]));
     }
 
     /**
      * View a single question
      *
-     * @param int|string $id
+     * @param int|string $id Question id to view
      * @return \Cake\Http\Response|null
      */
     public function view($id)

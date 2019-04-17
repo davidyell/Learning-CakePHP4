@@ -37,6 +37,7 @@ class AppController extends Controller
      * e.g. `$this->loadComponent('Security');`
      *
      * @return void
+     * @throws \Exception
      */
     public function initialize(): void
     {
@@ -51,7 +52,7 @@ class AppController extends Controller
                 'action' => 'login',
             ],
             'logoutRedirect' => '/',
-            'authError' => 'You must login',
+            'authError' => 'Please login',
             'authenticate' => [
                 'Form' => [
                     'fields' => ['username' => 'email_address'],

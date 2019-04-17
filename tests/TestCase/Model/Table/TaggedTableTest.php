@@ -2,6 +2,8 @@
 declare(strict_types=1);
 namespace App\Test\TestCase\Model\Table;
 
+use App\Model\Entity\Tag;
+use App\Model\Entity\Tagged;
 use App\Model\Table\TaggedTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
@@ -55,32 +57,23 @@ class TaggedTableTest extends TestCase
     }
 
     /**
-     * Test initialize method
+     * Test building of Tagged entity array from array of tags
      *
      * @return void
      */
-    public function testInitialize()
+    public function testBuildTags()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $tagNames = ['Cat', 'Fish', 'Weasel'];
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $result = $this->Tagged->buildTags($tagNames);
 
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertNotEmpty($result);
+        $this->assertIsArray($result);
+        $this->assertCount(3, $result);
+
+        foreach ($result as $taggedEntity) {
+            $this->assertInstanceOf(Tagged::class, $taggedEntity);
+            $this->assertInstanceOf(Tag::class, $taggedEntity->get('tag'));
+        }
     }
 }

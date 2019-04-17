@@ -57,7 +57,7 @@ class User extends Entity
     /**
      * Hash the User entity password
      *
-     * @param string $password
+     * @param string $password Users plain text password
      * @return null|string
      */
     protected function _setPassword(string $password): ?string

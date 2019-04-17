@@ -18,7 +18,7 @@ class AnswersController extends AppController
     /**
      * Add a new answer to an existing question
      *
-     * @param int $questionId
+     * @param int $questionId Question id to add an answer to
      * @return \Cake\Http\Response|null
      */
     public function add($questionId)

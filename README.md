@@ -13,7 +13,7 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 * Visit http://localhost:8765/
 
 ## TODO
-- [ ] Tagging
+- [x] Tagging
 - [ ] Comments
 - [ ] Slugs
 - [ ] Voting
@@ -21,3 +21,5 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [ ] Ajax voting
 - [ ] User profile
 - [ ] Status for questions and answers to allow soft delete
+- [ ] Browse by tag
+- [ ] Markdown questions and answers
