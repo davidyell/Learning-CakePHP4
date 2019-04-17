@@ -9,7 +9,7 @@
                 ['controller' => 'Questions', 'action' => 'index'],
                 [
                     'class' => $this->getRequest()->getParam('controller') === 'Questions'
-                    && $this->getRequest()->getParam('action') === 'index' ? 'nav-link active' : 'nav-link'
+                    &&  in_array($this->getRequest()->getParam('action'), ['index', 'view']) ? 'nav-link active' : 'nav-link'
                 ]
             );?>
         </li>

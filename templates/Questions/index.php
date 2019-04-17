@@ -10,7 +10,7 @@
     foreach ($questions as $question) {
         ?>
         <div class="question">
-            <div class="card float-left mr-3">
+            <div class="card float-left mr-3 <?= ($question->get('answer_count') < 1) ? 'border-0' : null?>">
                 <div class="card-body text-center">
                     <small><?= $question->get('answer_count');?><br>
                     answers</small>
@@ -19,7 +19,7 @@
             <div class="question-content">
                 <?= $this->Html->link(
                     '<h4>' . $question->get('title') . '</h4>',
-                    ['controller' => 'Questions', 'action' => 'view', $question->get('id')],
+                    ['controller' => 'Questions', 'action' => 'view', 'slug' => $question->get('slug')],
                     ['escape' => false]
                 )?>
 

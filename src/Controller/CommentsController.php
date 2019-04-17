@@ -57,11 +57,15 @@ class CommentsController extends AppController
         }
 
         if ($className === 'Questions') {
-            return $this->redirect(['controller' => 'Questions', 'action' => 'view', $id]);
+            $question = $this->Questions->find()
+                ->where(['Questions.id' => $id])
+                ->first();
+            return $this->redirect(['controller' => 'Questions', 'action' => 'view', 'slug' => $question->get('slug')]);
         }
 
         // Redirect the user to the Question on which the Answer they commented on resides
         $answer = $this->Answers->find()
+            ->contain('Questions')
             ->where(['Answers.id' => $id])
             ->first();
 
@@ -70,6 +74,6 @@ class CommentsController extends AppController
             return $this->redirect(['controller' => 'Questions', 'action' => 'index']);
         }
 
-        return $this->redirect(['controller' => 'Questions', 'action' => 'view', $answer->get('question_id')]);
+        return $this->redirect(['controller' => 'Questions', 'action' => 'view', $answer->get('question')->get('slug')]);
     }
 }

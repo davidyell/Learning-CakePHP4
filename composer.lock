@@ -940,12 +940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "dc9636e905f7eca0a78c1a2ddaf88a5793756b94"
+                "reference": "e089022375be50d049fd90296dce2c20b9e5bc78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/dc9636e905f7eca0a78c1a2ddaf88a5793756b94",
-                "reference": "dc9636e905f7eca0a78c1a2ddaf88a5793756b94",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/e089022375be50d049fd90296dce2c20b9e5bc78",
+                "reference": "e089022375be50d049fd90296dce2c20b9e5bc78",
                 "shasum": ""
             },
             "require": {
@@ -979,7 +979,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2019-04-17T07:22:00+00:00"
+            "time": "2019-04-17T09:01:08+00:00"
         },
         {
             "name": "cakephp/cakephp-codesniffer",

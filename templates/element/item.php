@@ -1,7 +1,9 @@
 <?php
 if ($data->has('question')) {
+    $itemType = 'question';
     $copy = $data->get('question');
 } elseif ($data->has('answer')) {
+    $itemType = 'answer';
     $copy = $data->get('answer');
 }
 ?>
@@ -11,7 +13,7 @@ if ($data->has('question')) {
 <div class="clearfix"><!-- clear --></div>
 
 <?php
-if (!empty($data->get('tagged')) && $data->has('question')) {
+if (!empty($data->get('tagged')) && $itemType === 'question') {
     echo "<div class='float-left'>";
     foreach ($data->get('tagged') as $tagged) {
         echo "<span class='badge badge-secondary mr-2'>" . $tagged->get('tag')->get('name') . "</span>";
@@ -22,7 +24,13 @@ if (!empty($data->get('tagged')) && $data->has('question')) {
 
 <div class="card float-right bg-light">
     <div class="card-body">
-        <p class="text-secondary">asked <?= $data->get('modified')->timeAgoInWords()?></p>
+        <?php
+        $label = 'asked';
+        if ($itemType === 'answer') {
+            $label = 'answered';
+        }
+        ?>
+        <p class="text-secondary"><?= $label?> <?= $data->get('modified')->timeAgoInWords()?></p>
         <img class="float-left mr-3" src="<?= "https://www.gravatar.com/avatar/" . md5(strtolower(trim($data->get('user')->get('email_address')))) . "?s=32"?>">
         <p style="white-space: nowrap"><?= $data->get('user')->get('username');?></p>
     </div>

@@ -1,4 +1,4 @@
-<div class="comments">
+<div class="comments mt-3 mb-3">
     <?php
     $comments = collection($comments)->sortBy('modified', SORT_ASC);
     foreach ($comments as $comment) {

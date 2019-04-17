@@ -73,7 +73,7 @@ class QuestionsController extends AppController
             if ($this->Questions->save($question)) {
                 $this->Flash->success('Your question has been saved.');
 
-                return $this->redirect(['action' => 'view', $question->get('id')]);
+                return $this->redirect(['action' => 'view', $question->get('slug')]);
             }
 
             $this->Flash->error('Sorry, your question could not be saved.');
@@ -89,10 +89,10 @@ class QuestionsController extends AppController
     /**
      * View a single question
      *
-     * @param int|string $id Question id to view
+     * @param string $slug Question slug to view
      * @return \Cake\Http\Response|null
      */
-    public function view($id)
+    public function view(string $slug)
     {
         $question = $this->Questions->find()
             ->contain([
@@ -106,7 +106,7 @@ class QuestionsController extends AppController
                     'Tags',
                 ],
             ])
-            ->where(['Questions.id' => $id])
+            ->where(['Questions.slug' => $slug])
             ->first();
 
         if (!$question) {

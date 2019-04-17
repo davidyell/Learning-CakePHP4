@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Utility\Text;
 
 /**
  * Question Entity
@@ -30,6 +31,7 @@ class Question extends Entity
      */
     protected $_accessible = [
         'title' => true,
+        'slug' => true,
         'question' => true,
         'user_id' => true,
         'created' => true,
@@ -38,4 +40,17 @@ class Question extends Entity
         'answers' => true,
         'tagged' => true,
     ];
+
+    /**
+     * When setting the title, automatically set a slug
+     *
+     * @param string $title Title to be sluggified
+     * @return string
+     */
+    protected function _setTitle(string $title): string
+    {
+        $this->set('slug',Text::slug(strtolower($title)) . '-' . rand(1000, 9999));
+
+        return $title;
+    }
 }

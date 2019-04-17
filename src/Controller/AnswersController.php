@@ -44,6 +44,6 @@ class AnswersController extends AppController
             }
         }
 
-        return $this->redirect(['controller' => 'Questions', 'action' => 'view', $question->get('id')]);
+        return $this->redirect(['controller' => 'Questions', 'action' => 'view', 'slug' => $question->get('slug')]);
     }
 }
