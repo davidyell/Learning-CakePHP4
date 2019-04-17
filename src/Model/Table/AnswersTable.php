@@ -40,6 +40,7 @@ class AnswersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Comments');
 
         $this->belongsTo('Questions', [
             'foreignKey' => 'question_id',

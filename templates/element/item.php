@@ -29,3 +29,11 @@ if (!empty($data->get('tagged')) && $data->has('question')) {
 </div>
 
 <div class="clearfix"><!-- clear --></div>
+
+<?= $this->element(
+    'comments/index', [
+        'comments' => $data->get('comments'),
+        'type' => ($data->has('question')) ? 'questions' : 'answers',
+        'id' => $data->get('id')
+    ]
+);?>

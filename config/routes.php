@@ -59,6 +59,10 @@ Router::scope('/', function (RouteBuilder $routes) {
 
 
     $routes->connect('/', ['controller' => 'Questions', 'action' => 'index']);
+    $routes
+        ->connect('/comments/add/:model/:id', ['controller' => 'Comments', 'action' => 'add'])
+        ->setPass(['model', 'id'])
+        ->setMethods(['post']);
 
 
     $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'home']);

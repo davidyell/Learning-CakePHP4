@@ -28,6 +28,7 @@
                 asked <?= $question->get('modified')->timeAgoInWords()?> <?= $question->get('user')->get('username');?>
             </p>
             <div class="clearfix"></div>
+            <hr>
         </div>
         <?php
     }

@@ -41,6 +41,7 @@ class QuestionsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Comments');
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
