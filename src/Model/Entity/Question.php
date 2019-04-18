@@ -50,7 +50,7 @@ class Question extends Entity
     protected function _setTitle(string $title): string
     {
         if (empty($this->get('slug'))) {
-            $this->set('slug',Text::slug(strtolower($title)) . '-' . rand(1000, 9999));
+            $this->set('slug',Text::slug(mb_strtolower($title)) . '-' . rand(1000, 9999));
         }
 
         return $title;

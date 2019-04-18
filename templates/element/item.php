@@ -22,6 +22,12 @@ if (!empty($data->get('tagged')) && $itemType === 'question') {
 }
 ?>
 
+<?php if ($this->getRequest()->getSession()->read('Auth.User.id') === $question->get('user_id')):?>
+    <div class="float-left text-secondary" style="clear:left">
+        <p class="mt-3"><?= $this->Html->link('edit', ['controller' => 'Questions', 'action' => 'edit', 'slug' => $question->get('slug')]);?></p>
+    </div>
+<?php endif;?>
+
 <div class="card float-right bg-light">
     <div class="card-body">
         <?php

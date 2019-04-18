@@ -24,3 +24,4 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [ ] Status for questions and answers to allow soft delete
 - [x] Browse by tag
 - [ ] Markdown questions and answers
+- [x] Editable questions by the author

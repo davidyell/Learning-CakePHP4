@@ -1,11 +1,20 @@
-<h2>Ask a new question</h2>
+<h2>Edit your question</h2>
 
 <?php
 echo $this->Form->create($question, ['novalidate' => true]);
 echo $this->Form->control('title');
 echo $this->Form->control('question');
-echo $this->Form->control('tags', ['type' => 'select', 'multiple' => true]);
-echo $this->Form->submit('Save', ['class' => 'btn btn-primary']);
+
+$existingTags = [];
+if (!empty($question->get('tagged'))) {
+    $existingTags = collection($question->get('tagged'))->combine('tag.name', 'tag.name')->toArray();
+}
+echo $this->Form->control('tags', ['type' => 'select', 'multiple' => true, 'value' => $existingTags]);
+
+echo "<div class='submit'>";
+    echo $this->Form->button('Save', ['type' => 'submit', 'class' => 'btn btn-primary mr-3']);
+    echo $this->Html->link('Cancel', ['controller' => 'Questions', 'action' => 'view', 'slug' => $question->get('slug')], ['class' => 'btn btn-danger']);
+echo "</div>";
 echo $this->Form->end();
 ?>
 

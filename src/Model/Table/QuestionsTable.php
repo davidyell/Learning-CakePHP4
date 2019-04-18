@@ -52,6 +52,7 @@ class QuestionsTable extends Table
         ]);
         $this->hasMany('Tagged', [
             'foreignKey' => 'question_id',
+            'saveStrategy' => 'replace'
         ]);
     }
 
