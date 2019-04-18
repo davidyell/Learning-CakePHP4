@@ -16,11 +16,11 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [x] Tagging
 - [x] Comments
 - [x] Answer count on question index
-- [ ] Slugs
+- [x] Slugs
 - [ ] Voting
 - [ ] Administration
 - [ ] Ajax voting
 - [ ] User profile
 - [ ] Status for questions and answers to allow soft delete
-- [ ] Browse by tag
+- [x] Browse by tag
 - [ ] Markdown questions and answers

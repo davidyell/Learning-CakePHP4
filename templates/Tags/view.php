@@ -1,4 +1,4 @@
-<h1>Questions</h1>
+<h1>Questions tagged '<?= $tag->get('name');?>'</h1>
 <hr>
 
 <?php if ($questions->isEmpty()): ?>
@@ -11,7 +11,3 @@
         echo $this->element('question', ['question' => $question]);
     }
 endif;?>
-
-<nav>
-    <ul class="pagination"><?= $this->Paginator->numbers()?></ul>
-</nav>

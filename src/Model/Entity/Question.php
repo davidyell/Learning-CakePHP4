@@ -42,14 +42,16 @@ class Question extends Entity
     ];
 
     /**
-     * When setting the title, automatically set a slug
+     * When setting the title, automatically create a basic slug
      *
      * @param string $title Title to be sluggified
      * @return string
      */
     protected function _setTitle(string $title): string
     {
-        $this->set('slug',Text::slug(strtolower($title)) . '-' . rand(1000, 9999));
+        if (empty($this->get('slug'))) {
+            $this->set('slug',Text::slug(strtolower($title)) . '-' . rand(1000, 9999));
+        }
 
         return $title;
     }
