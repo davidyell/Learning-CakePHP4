@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\Query;
+
 /**
  * @property \App\Model\Table\UsersTable $Users
  */
@@ -20,6 +22,7 @@ class UsersController extends AppController
      * Build the controller
      *
      * @return void
+     * @throws \Exception If a component cannot be loaded
      */
     public function initialize(): void
     {
@@ -52,11 +55,10 @@ class UsersController extends AppController
      *
      * @return string
      */
-    public function logout()
+    public function logout(): string
     {
         $this->getRequest()->getSession()->destroy();
-
-        return $this->redirect($this->Auth->logout());
+        return $this->Auth->logout();
     }
 
     /**
@@ -79,6 +81,44 @@ class UsersController extends AppController
 
             $this->Flash->error('Sorry we could not register your account');
         }
+
+        $this->set('user', $user);
+    }
+
+    /**
+     * View the currently logged in users profile
+     *
+     * @return void
+     */
+    public function profile()
+    {
+        $user = $this->Users->find()
+            ->contain([
+                'Questions' => function (Query $query) {
+                    return $query
+                        ->order(['modified' => 'desc'])
+                        ->limit(5);
+                },
+                'Answers' => function (Query $query) {
+                    return $query
+                        ->contain('Questions')
+                        ->order(['Answers.modified' => 'desc'])
+                        ->limit(5);
+                },
+                'Comments' => function (Query $query) {
+                    return $query
+                        ->contain([
+                            'Questions',
+                            'Answers' => [
+                                'Questions'
+                            ]
+                        ])
+                        ->order(['Comments.modified' => 'desc'])
+                        ->limit(5);
+                }
+            ])
+            ->where(['Users.id' => $this->getRequest()->getSession()->read('Auth.User.id')])
+            ->first();
 
         $this->set('user', $user);
     }

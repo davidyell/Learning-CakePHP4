@@ -42,6 +42,16 @@
         <?php else: ?>
             <li class="nav-item">
                 <?= $this->Html->link(
+                    'My profile',
+                    ['controller' => 'Users', 'action' => 'profile'],
+                    [
+                        'class' => $this->getRequest()->getParam('controller') === 'Users'
+                        && $this->getRequest()->getParam('action') === 'profile' ? 'nav-link active' : 'nav-link'
+                    ]
+                );?>
+            </li>
+            <li class="nav-item">
+                <?= $this->Html->link(
                     'Logout ' . $this->getRequest()->getSession()->read('Auth.User.username'),
                     ['controller' => 'Users', 'action' => 'logout'],
                     ['class' => 'nav-link']

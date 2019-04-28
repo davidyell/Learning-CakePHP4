@@ -44,6 +44,18 @@ class CommentsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Questions', [
+            'className' => QuestionsTable::class,
+            'foreignKey' => 'primary_key',
+            'bindingKey' => 'id',
+            'conditions' => ['table_name' => 'Questions']
+        ]);
+        $this->belongsTo('Answers', [
+            'className' => AnswersTable::class,
+            'foreignKey' => 'primary_key',
+            'bindingKey' => 'id',
+            'conditions' => ['table_name' => 'Answers']
+        ]);
     }
 
     /**
