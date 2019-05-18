@@ -18,7 +18,7 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [x] Answer count on question index
 - [x] Slugs
 - [ ] Voting
-- [ ] Administration
+- [x] Administration
 - [ ] Ajax voting
 - [x] User profile
 - [ ] Status for questions and answers to allow soft delete
