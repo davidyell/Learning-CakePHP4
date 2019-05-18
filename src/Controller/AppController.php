@@ -61,5 +61,9 @@ class AppController extends Controller
             'finder' => 'login',
             'storage' => 'Session',
         ]);
+
+        if ($this->getRequest()->getParam('prefix') === 'admin') {
+            $this->viewBuilder()->setLayout('admin');
+        }
     }
 }
