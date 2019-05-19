@@ -50,6 +50,7 @@ class AppController extends Controller
             'loginAction' => [
                 'controller' => 'Users',
                 'action' => 'login',
+                'prefix' => false
             ],
             'logoutRedirect' => '/',
             'authError' => 'Please login',
