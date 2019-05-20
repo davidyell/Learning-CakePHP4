@@ -54,6 +54,8 @@ class Application extends BaseApplication
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
         }
+
+        $this->addPlugin('CakeBootstrap');
     }
 
     /**

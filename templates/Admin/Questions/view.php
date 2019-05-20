@@ -22,7 +22,7 @@
     </ul>
 </nav>
 <div class="questions view large-9 medium-8 columns content">
-    <h3><?= h($question->id) ?></h3>
+    <h3><?= h($question->title) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Title') ?></th>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
-            <td><?= $question->has('user') ? $this->Html->link($question->user->id, ['controller' => 'Users', 'action' => 'view', $question->user->id]) : '' ?></td>
+            <td><?= $question->has('user') ? $this->Html->link($question->user->username, ['controller' => 'Users', 'action' => 'view', $question->user->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

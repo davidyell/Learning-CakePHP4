@@ -8,23 +8,23 @@
     <div class="col-md-2">
         <nav id="actions-sidebar">
             <h4>Actions</h4>
-            <ul class="list-group">
-                <li class="list-group-item"><?= $this->Html->link(__('New Question'), ['action' => 'add']) ?></li>
-                                                                                                        <li class="list-group-item"><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-                            <li class="list-group-item"><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-                                                                                                                                                                <li class="list-group-item"><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li>
-                            <li class="list-group-item"><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li>
-                                                                                                                            <li class="list-group-item"><?= $this->Html->link(__('List Answers'), ['controller' => 'Answers', 'action' => 'index']) ?></li>
-                            <li class="list-group-item"><?= $this->Html->link(__('New Answer'), ['controller' => 'Answers', 'action' => 'add']) ?></li>
-                                                                                                                            <li class="list-group-item"><?= $this->Html->link(__('List Tagged'), ['controller' => 'Tagged', 'action' => 'index']) ?></li>
-                            <li class="list-group-item"><?= $this->Html->link(__('New Tagged'), ['controller' => 'Tagged', 'action' => 'add']) ?></li>
-                                                                                                    </ul>
+            <div class="list-group">
+                <?= $this->Html->link(__('New Question'), ['action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                        <?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                                                                                <?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                                            <?= $this->Html->link(__('List Answers'), ['controller' => 'Answers', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New Answer'), ['controller' => 'Answers', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                                            <?= $this->Html->link(__('List Tagged'), ['controller' => 'Tagged', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New Tagged'), ['controller' => 'Tagged', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                    </div>
         </nav>
     </div>
     <div class="col-md-10">
         <div class="questions index large-9 medium-8 columns content">
             <h3><?= __('Questions') ?></h3>
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" class="table table-striped">
                 <thead>
                 <tr>
                                             <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -44,7 +44,7 @@
                                                                                                                                                                                                                                                                                             <td><?= h($question->title) ?></td>
                                                                                                                                                                                                                                                                                             <td><?= h($question->slug) ?></td>
                                                                                                                                                                                                                                                                                             <td><?= $this->Number->format($question->answer_count) ?></td>
-                                                                                                                                                                                                                    <td><?= $question->has('user') ? $this->Html->link($question->user->id, ['controller' => 'Users', 'action' => 'view', $question->user->id]) : '' ?></td>
+                                                                                                                                                                                                                    <td><?= $question->has('user') ? $this->Html->link($question->user->username, ['controller' => 'Users', 'action' => 'view', $question->user->id]) : '' ?></td>
                                                                                                                                                                                                                                                                                                                     <td><?= h($question->created) ?></td>
                                                                                                                                                                                                                                                                                             <td><?= h($question->modified) ?></td>
                                                                                                                 <td class="actions">

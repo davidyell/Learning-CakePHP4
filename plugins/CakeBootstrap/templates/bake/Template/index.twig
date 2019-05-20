@@ -1,18 +1,3 @@
-{#
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         2.0.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-#}
 <?php
 /**
  * @var \{{ namespace }}\View\AppView $this
@@ -24,19 +9,19 @@
     <div class="col-md-2">
         <nav id="actions-sidebar">
             <h4>Actions</h4>
-            <ul class="list-group">
-                <li class="list-group-item"><?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add']) ?></li>
+            <div class="list-group">
+                <?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
                 {% set done = [] %}
                 {% for type, data in associations %}
                     {% for alias, details in data %}
                         {% if details.navLink and details.controller is not same as(_view.name) and details.controller not in done %}
-                            <li class="list-group-item"><?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?></li>
-                            <li class="list-group-item"><?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?></li>
+                            <?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
                             {% set done = done|merge([details.controller]) %}
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
-            </ul>
+            </div>
         </nav>
     </div>
     <div class="col-md-10">
