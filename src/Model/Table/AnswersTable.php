@@ -36,7 +36,7 @@ class AnswersTable extends Table
         parent::initialize($config);
 
         $this->setTable('answers');
-        $this->setDisplayField('id');
+        $this->setDisplayField('answer');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

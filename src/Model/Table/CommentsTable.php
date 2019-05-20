@@ -35,7 +35,7 @@ class CommentsTable extends Table
         parent::initialize($config);
 
         $this->setTable('comments');
-        $this->setDisplayField('id');
+        $this->setDisplayField('comment');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
