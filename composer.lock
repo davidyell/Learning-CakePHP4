@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "d62447834aa15e881963094839ac0246f2e5f2eb"
+                "reference": "261f12760e2fe588b31c4d62595c22f706b5c3fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/d62447834aa15e881963094839ac0246f2e5f2eb",
-                "reference": "d62447834aa15e881963094839ac0246f2e5f2eb",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/261f12760e2fe588b31c4d62595c22f706b5c3fc",
+                "reference": "261f12760e2fe588b31c4d62595c22f706b5c3fc",
                 "shasum": ""
             },
             "require": {
@@ -143,7 +143,7 @@
                 "rapid-development",
                 "validation"
             ],
-            "time": "2019-05-20T07:28:36+00:00"
+            "time": "2019-05-23T03:29:27+00:00"
         },
         {
             "name": "cakephp/chronos",
@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "3f364462fef2dc97c37e9fadc5d56664345b269e"
+                "reference": "9f3278a1dcc022e74ca94d9846de07ada0d36f92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/3f364462fef2dc97c37e9fadc5d56664345b269e",
-                "reference": "3f364462fef2dc97c37e9fadc5d56664345b269e",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/9f3278a1dcc022e74ca94d9846de07ada0d36f92",
+                "reference": "9f3278a1dcc022e74ca94d9846de07ada0d36f92",
                 "shasum": ""
             },
             "require": {
@@ -1088,7 +1088,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2019-05-12T13:02:08+00:00"
+            "time": "2019-05-22T06:50:08+00:00"
         },
         {
             "name": "composer/composer",
@@ -3710,7 +3710,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
