@@ -57,29 +57,37 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->applyMiddleware('csrf');
 
+    /**
+     * Here, we are connecting '/' (base path) to a controller called 'Pages',
+     * its action called 'display', and we pass a param to select the view file
+     * to use (in this case, templates/Pages/home.php)...
+     */
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    $routes->connect('/', ['controller' => 'Questions', 'action' => 'index']);
+    /**
+     * ...and connect the rest of 'Pages' controller's URLs.
+     */
+    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    $routes->connect('/questions/add', ['controller' => 'Questions', 'action' => 'add']);
-    $routes
-        ->connect('/questions/edit/:slug', ['controller' => 'Questions', 'action' => 'edit'])
-        ->setPass(['slug']);
-
-    $routes
-        ->connect('/questions/:slug', ['controller' => 'Questions', 'action' => 'view'])
-        ->setPass(['slug']);
-
-    $routes
-        ->connect('/comments/add/:model/:id', ['controller' => 'Comments', 'action' => 'add'])
-        ->setPass(['model', 'id'])
-        ->setMethods(['post']);
-
-
-    $routes->connect('/home', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->fallbacks(DashedRoute::class);
-});
-
-Router::prefix('admin', function (RouteBuilder $routes) {
+    /**
+     * Connect catchall routes for all controllers.
+     *
+     * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
+     *
+     * ```
+     * $routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);
+     * $routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);
+     * ```
+     *
+     * Any route class can be used with this method, such as:
+     * - DashedRoute
+     * - InflectedRoute
+     * - Route
+     * - Or your own route class
+     *
+     * You can remove these routes once you've connected the
+     * routes you want in your application.
+     */
     $routes->fallbacks(DashedRoute::class);
 });
 

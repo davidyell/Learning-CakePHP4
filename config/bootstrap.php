@@ -201,7 +201,3 @@ TypeFactory::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
-
-if (Configure::read('debug')) {
-    Configure::write('DebugKit.forceEnable', true);
-}
