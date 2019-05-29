@@ -108,6 +108,9 @@ class QuestionsController extends AppController
             throw new NotFoundException('Question cannot be found.');
         }
 
+        $question->set('view_count', (int)$question->get('view_count') + 1);
+        $this->Questions->save($question);
+
         $this->set('question', $question);
         $this->set('answer', $this->Questions->Answers->newEmptyEntity());
     }
