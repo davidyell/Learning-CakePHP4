@@ -17,7 +17,7 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [x] Comments
 - [x] Answer count on question index
 - [x] Slugs
-- [ ] Voting
+- [x] Voting
 - [x] Administration
 - [ ] Ajax voting
 - [x] User profile
