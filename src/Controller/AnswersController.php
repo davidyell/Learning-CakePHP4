@@ -1,13 +1,5 @@
 <?php
 declare(strict_types=1);
-/**
- * AnswersController
- *
- * Copyright (c) 2019 UK Web Media Ltd.
- * @package App\Controller
- * @author David Yell <dyell@ukwebmedia.com>
- */
-
 namespace App\Controller;
 
 /**
