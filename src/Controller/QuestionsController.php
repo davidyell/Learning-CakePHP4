@@ -109,6 +109,7 @@ class QuestionsController extends AppController
         }
 
         $question->set('view_count', (int)$question->get('view_count') + 1);
+        $question->setDirty('modified', true);
         $this->Questions->save($question);
 
         $this->set('question', $question);
