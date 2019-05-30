@@ -64,6 +64,9 @@ Router::scope('/', function (RouteBuilder $routes) {
         ->connect('/questions/:slug', ['controller' => 'Questions', 'action' => 'view'])
         ->setPass(['slug']);
     $routes
+        ->connect('/vote/:dir/:model/:id', ['controller' => 'Votes', 'action' => 'vote'])
+        ->setPass(['dir', 'model', 'id']);
+    $routes
         ->connect('/comments/add/:model/:id', ['controller' => 'Comments', 'action' => 'add'])
         ->setPass(['model', 'id'])
         ->setMethods(['post']);

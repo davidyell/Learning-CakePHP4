@@ -8,6 +8,8 @@ if ($data->has('question')) {
 }
 ?>
 
+<?= $this->element('vote', ['table' => $itemType, 'item' => $data]);?>
+
 <p><?= nl2br($copy);?></p>
 
 <div class="clearfix"><!-- clear --></div>
