@@ -1,8 +1,17 @@
 <div class="question">
-    <div class="card float-left mr-3 <?= ($question->get('answer_count') < 1) ? 'border-0' : null?>">
+    <div class="card float-left mr-3 border-0">
         <div class="card-body text-center">
-            <small><?= $question->get('answer_count');?><br>
-                answers</small>
+            <?= $question->get('vote_count') ?? 0 ;?><br><small>votes</small>
+        </div>
+    </div>
+    <div class="card float-left mr-3 <?= ($question->get('answer_count') < 1) ? 'border-0' : 'text-success'?>">
+        <div class="card-body text-center">
+            <?= $question->get('answer_count');?><br><small>answers</small>
+        </div>
+    </div>
+    <div class="card float-left mr-3 border-0">
+        <div class="card-body text-center">
+            <?= $question->get('view_count');?><br><small>views</small>
         </div>
     </div>
     <div class="question-content">

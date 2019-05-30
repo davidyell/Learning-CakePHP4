@@ -17,7 +17,7 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [x] Comments
 - [x] Answer count on question index
 - [x] Slugs
-- [ ] Voting
+- [x] Voting
 - [x] Administration
 - [ ] Ajax voting
 - [x] User profile
@@ -25,3 +25,4 @@ This simple project uses Stack Exchange as a model for the project. Using questi
 - [x] Browse by tag
 - [ ] Markdown questions and answers
 - [x] Editable questions by the author
+- [ ] Accept answers to questions

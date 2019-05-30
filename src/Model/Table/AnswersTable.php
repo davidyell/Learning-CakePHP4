@@ -41,6 +41,7 @@ class AnswersTable extends Table
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Comments');
+        $this->addBehavior('Votes');
         $this->addBehavior('CounterCache', [
             'Questions' => ['answer_count']
         ]);

@@ -1,13 +1,5 @@
 <?php
 declare(strict_types=1);
-/**
- * QuestionsController
- *
- * Copyright (c) 2019 UK Web Media Ltd.
- * @package App\Controller
- * @author David Yell <dyell@ukwebmedia.com>
- */
-
 namespace App\Controller;
 
 use Cake\Http\Exception\NotFoundException;
@@ -115,6 +107,10 @@ class QuestionsController extends AppController
         if (!$question) {
             throw new NotFoundException('Question cannot be found.');
         }
+
+        $question->set('view_count', (int)$question->get('view_count') + 1);
+        $question->setDirty('modified', true);
+        $this->Questions->save($question);
 
         $this->set('question', $question);
         $this->set('answer', $this->Questions->Answers->newEmptyEntity());

@@ -14,6 +14,8 @@
                             <?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
                                                                                                                                                                 <?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
                             <?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
+                                                                                                                            <?= $this->Html->link(__('List Votes'), ['controller' => 'Votes', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
+                            <?= $this->Html->link(__('New Vote'), ['controller' => 'Votes', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
                                                                                                                             <?= $this->Html->link(__('List Answers'), ['controller' => 'Answers', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
                             <?= $this->Html->link(__('New Answer'), ['controller' => 'Answers', 'action' => 'add'], ['class' => 'list-group-item list-group-item-action']) ?>
                                                                                                                             <?= $this->Html->link(__('List Tagged'), ['controller' => 'Tagged', 'action' => 'index'], ['class' => 'list-group-item list-group-item-action']) ?>
@@ -34,6 +36,7 @@
                                             <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                                             <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                                             <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                                            <th scope="col"><?= $this->Paginator->sort('view_count') ?></th>
                                         <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
                 </thead>
@@ -47,6 +50,7 @@
                                                                                                                                                                                                                     <td><?= $question->has('user') ? $this->Html->link($question->user->username, ['controller' => 'Users', 'action' => 'view', $question->user->id]) : '' ?></td>
                                                                                                                                                                                                                                                                                                                     <td><?= h($question->created) ?></td>
                                                                                                                                                                                                                                                                                             <td><?= h($question->modified) ?></td>
+                                                                                                                                                                                                                                                                                            <td><?= $this->Number->format($question->view_count) ?></td>
                                                                                                                 <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $question->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $question->id]) ?>

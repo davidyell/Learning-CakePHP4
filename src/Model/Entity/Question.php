@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Model\Entity;
 
+use Cake\Collection\Collection;
 use Cake\ORM\Entity;
 use Cake\Utility\Text;
 
@@ -39,6 +40,7 @@ class Question extends Entity
         'user' => true,
         'answers' => true,
         'tagged' => true,
+        'view_count' => true
     ];
 
     /**
@@ -54,5 +56,22 @@ class Question extends Entity
         }
 
         return $title;
+    }
+
+    protected function _getVoteCount(): int
+    {
+        return count($this->get('votes'));
+    }
+
+    protected function _getUpvotes(): int
+    {
+        $votes = new Collection($this->get('votes'));
+        return $votes->match(['vote' => 1])->count();
+    }
+
+    protected function _getDownvotes(): int
+    {
+        $votes = new Collection($this->get('votes'));
+        return $votes->match(['vote' => -1])->count();
     }
 }
