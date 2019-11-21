@@ -55,8 +55,8 @@ $prefix = $this->getRequest()->getParam('prefix');
             <li class="nav-item">
                 <?= $this->Html->link(
                     'Administration',
-                    ['controller' => 'Questions', 'action' => 'index', 'prefix' => 'admin'],
-                    ['class' => $this->getRequest()->getParam('prefix') === 'admin' ? 'nav-link active' : 'nav-link']
+                    ['controller' => 'Questions', 'action' => 'index', 'prefix' => 'Admin'],
+                    ['class' => $this->getRequest()->getParam('prefix') === 'Admin' ? 'nav-link active' : 'nav-link']
                 )?>
             </li>
             <li class="nav-item">
