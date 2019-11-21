@@ -1,7 +1,6 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\CommentsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -22,6 +21,24 @@ class CommentsControllerTest extends TestCase
         'app.Users',
     ];
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->session([
+            'Auth' => [
+                'User' => [
+                    'id' => 2,
+                    'username' => 'neon1024',
+                    'email' => 'neon1024@example.com',
+                    'is_active' => true,
+                    'created' => new \DateTimeImmutable(),
+                    'modified' => new \DateTimeImmutable()
+                ]
+            ]
+        ]);
+    }
+
     /**
      * Test add method
      *
@@ -34,6 +51,11 @@ class CommentsControllerTest extends TestCase
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('Ye gads! What did you do?');
 
-        $this->post('/comments/add/invalid/999');
+        $this->enableCsrfToken();
+        $this->enableSecurityToken();
+        $this->setUnlockedFields(['comment']);
+        $this->post('/comments/add/invalid/999', ['comment' => 'Expecting an exception here']);
+
+        $this->assertResponseFailure();
     }
 }
