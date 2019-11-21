@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -23,9 +24,7 @@ use Cake\Controller\Controller;
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
- *
- * @mixin \Cake\Controller\Component\AuthComponent
+ * @link https://book.cakephp.org/4/en/controllers.html#the-app-controller
  */
 class AppController extends Controller
 {
@@ -37,7 +36,6 @@ class AppController extends Controller
      * e.g. `$this->loadComponent('Security');`
      *
      * @return void
-     * @throws \Exception
      */
     public function initialize(): void
     {
@@ -66,5 +64,12 @@ class AppController extends Controller
         if ($this->getRequest()->getParam('prefix') === 'admin') {
             $this->viewBuilder()->setLayout('admin');
         }
+
+
+        /*
+         * Enable the following component for recommended CakePHP security settings.
+         * see https://book.cakephp.org/4/en/controllers/components/security.html
+         */
+        //$this->loadComponent('Security');
     }
 }
