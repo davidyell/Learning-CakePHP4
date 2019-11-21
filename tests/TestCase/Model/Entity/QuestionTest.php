@@ -45,7 +45,7 @@ class QuestionTest extends TestCase
             'Basic title' => ['An example question', '/an-example-question-[\d]+/'],
             'Title with accents' => ['Das Pferd fährt nicht', '/das-pferd-fahrt-nicht-[\d]+/'],
             'Non latin title' => ['马不开车', '/ma-bu-kai-che-[\d]+/'],
-            'Another non latin' => ['الحصان لا يقود', '/alhisan-la-yaqud-[\d]+/']
+            'Another non latin' => ['الحصان لا يقود', '/alhsan-la-yqwd-[\d]+/']
         ];
     }
 
