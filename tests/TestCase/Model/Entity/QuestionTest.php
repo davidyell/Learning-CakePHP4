@@ -21,7 +21,7 @@ class QuestionTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->Question = new Question();
@@ -32,7 +32,7 @@ class QuestionTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($this->Question);
 

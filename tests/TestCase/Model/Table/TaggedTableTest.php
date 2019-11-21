@@ -37,7 +37,7 @@ class TaggedTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $config = TableRegistry::getTableLocator()->exists('Tagged') ? [] : ['className' => TaggedTable::class];
@@ -49,7 +49,7 @@ class TaggedTableTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($this->Tagged);
 
