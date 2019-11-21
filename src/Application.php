@@ -50,6 +50,9 @@ class Application extends BaseApplication
          */
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
+            if (Configure::read('debug')) {
+                Configure::write('DebugKit.forceEnable', true);
+            }
         }
 
         // Load more plugins here
