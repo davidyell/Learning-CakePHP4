@@ -27,8 +27,7 @@
                 <tr>
                     <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('table_name') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('primary_key') ?></th>
+                    <th scope="col"><?= $this->Paginator->sort('table_name', 'Commented on') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -40,8 +39,6 @@
                         <td><?= $this->Number->format($comment->id) ?></td>
                         <td><?= $comment->has('user') ? $this->Html->link($comment->user->username, ['controller' => 'Users', 'action' => 'view', $comment->user->id]) : '' ?></td>
                         <td><?= h($comment->table_name) ?></td>
-                        <td><?= $comment->has('question') ? $this->Html->link($comment->question->title, ['controller' => 'Questions', 'action' => 'view', $comment->question->id]) : '' ?></td>
-                        <td><?= $comment->has('answer') ? $this->Html->link($comment->answer->answer, ['controller' => 'Answers', 'action' => 'view', $comment->answer->id]) : '' ?></td>
                         <td><?= h($comment->created) ?></td>
                         <td><?= h($comment->modified) ?></td>
                         <td class="actions">
