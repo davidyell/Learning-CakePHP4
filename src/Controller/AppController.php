@@ -44,21 +44,29 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Security');
-        $this->loadComponent('Auth', [
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login',
-                'prefix' => false
-            ],
-            'logoutRedirect' => '/',
-            'authError' => 'Please login',
+//        $this->loadComponent('Auth', [
+//            'loginAction' => [
+//                'controller' => 'Users',
+//                'action' => 'login',
+//                'prefix' => false
+//            ],
+//            'logoutRedirect' => '/',
+//            'authError' => 'Please login',
+//            'authenticate' => [
+//                'Form' => [
+//                    'fields' => ['username' => 'email_address'],
+//                ],
+//            ],
+//            'finder' => 'login',
+//            'storage' => 'Session',
+//        ]);
+
+        $this->loadComponent('TinyAuth.Auth', [
             'authenticate' => [
                 'Form' => [
                     'fields' => ['username' => 'email_address'],
                 ],
-            ],
-            'finder' => 'login',
-            'storage' => 'Session',
+            ]
         ]);
 
         if ($this->getRequest()->getParam('prefix') === 'admin') {

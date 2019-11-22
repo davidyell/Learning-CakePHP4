@@ -10,19 +10,6 @@ use Cake\ORM\Query;
 class UsersController extends AppController
 {
     /**
-     * Build the controller
-     *
-     * @return void
-     * @throws \Exception If a component cannot be loaded
-     */
-    public function initialize(): void
-    {
-        parent::initialize();
-
-        $this->Auth->allow(['register']);
-    }
-
-    /**
      * Log a user in
      *
      * @return \Cake\Http\Response|null
@@ -44,12 +31,12 @@ class UsersController extends AppController
     /**
      * Log the user out
      *
-     * @return string
+     * @return \Cake\Http\Response
      */
-    public function logout(): string
+    public function logout()
     {
         $this->getRequest()->getSession()->destroy();
-        return $this->Auth->logout();
+        return $this->redirect($this->Auth->logout());
     }
 
     /**

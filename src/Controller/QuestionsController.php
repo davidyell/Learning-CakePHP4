@@ -23,8 +23,6 @@ class QuestionsController extends AppController
         parent::initialize();
 
         $this->loadComponent('Paginator');
-
-        $this->Auth->allow(['index', 'view']);
     }
 
     /**

@@ -44,18 +44,21 @@ class Application extends BaseApplication
             $this->bootstrapCli();
         }
 
+        // Load more plugins here
+        $this->addPlugin('TinyAuth');
+
         /*
          * Only try to load DebugKit in development mode
          * Debug Kit should not be installed on a production system
          */
         if (Configure::read('debug')) {
-            $this->addPlugin('DebugKit');
             if (Configure::read('debug')) {
-                Configure::write('DebugKit.forceEnable', true);
+//                Configure::write('DebugKit.forceEnable', true);
+                Configure::write('DebugKit.safeTld', ['dave']);
+                Configure::write('DebutKit.panels', ['TinyAuth.Auth' => true]);
             }
+            $this->addPlugin('DebugKit');
         }
-
-        // Load more plugins here
     }
 
     /**
