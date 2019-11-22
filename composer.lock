@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "262fc5e2687cedb834063017e9ca9a4b",
+    "content-hash": "05b05abc032595466eed275726566e17",
     "packages": [
         {
             "name": "aura/intl",
@@ -296,6 +296,61 @@
                 "tls"
             ],
             "time": "2019-08-30T08:44:50+00:00"
+        },
+        {
+            "name": "dereuromark/cakephp-tinyauth",
+            "version": "dev-cake4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dereuromark/cakephp-tinyauth.git",
+                "reference": "7dcea40c165891422bb7b10f319bdb219e1b3132"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dereuromark/cakephp-tinyauth/zipball/7dcea40c165891422bb7b10f319bdb219e1b3132",
+                "reference": "7dcea40c165891422bb7b10f319bdb219e1b3132",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "4.x-dev",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "cakephp/authentication": "2.x-dev",
+                "cakephp/authorization": "2.x-dev",
+                "cakephp/debug_kit": "4.x-dev",
+                "composer/semver": "^1.5",
+                "dereuromark/composer-prefer-lowest": "^0.1.3",
+                "fig-r/psr2r-sniffer": "dev-master"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "TinyAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Scherer",
+                    "homepage": "https://www.dereuromark.de",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A CakePHP plugin to handle user authentication and authorization the easy way.",
+            "homepage": "https://github.com/dereuromark/cakephp-tinyauth",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "cakephp",
+                "plugin",
+                "roles",
+                "tinyauth"
+            ],
+            "time": "2019-11-21T21:54:09+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -4574,6 +4629,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "cakephp/cakephp": 20,
+        "dereuromark/cakephp-tinyauth": 20,
         "cakephp/bake": 20,
         "cakephp/cakephp-codesniffer": 20,
         "cakephp/debug_kit": 20,
