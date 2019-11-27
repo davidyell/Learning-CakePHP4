@@ -48,9 +48,6 @@ class CommentsControllerTest extends TestCase
      */
     public function testAddWithInvalidCommentModel()
     {
-        $this->expectException(\BadMethodCallException::class);
-        $this->expectExceptionMessage('Ye gads! What did you do?');
-
         $this->enableCsrfToken();
         $this->enableSecurityToken();
         $this->setUnlockedFields(['comment']);

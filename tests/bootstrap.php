@@ -45,3 +45,5 @@ ConnectionManager::setConfig('test_debug_kit', [
 ]);
 
 ConnectionManager::alias('test_debug_kit', 'debug_kit');
+
+session_id('cli');
